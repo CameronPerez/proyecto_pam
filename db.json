@@ -1,3 +1,52 @@
 {
-  "usuarios": []
+  "usuarios": [
+    {
+      "id": "9a73",
+      "nombre": "asd",
+      "email": "asd123@duocuc.cl",
+      "password": "asd123",
+      "f_nacimiento": "1998-12-19",
+      "genero": "masculino"
+    },
+    {
+      "id": "f3cb",
+      "nombre": "Andres",
+      "email": "andres@duocuc.cl",
+      "password": "andres123",
+      "f_nacimiento": "1998-02-19",
+      "genero": "Masculino"
+    },
+    {
+      "id": "c772",
+      "nombre": "Andres",
+      "email": "asda1@duocuc.cl",
+      "password": "asd123",
+      "f_nacimiento": "1998-12-19",
+      "genero": "Masculino"
+    },
+    {
+      "id": "9d7a",
+      "nombre": "Andres",
+      "email": "andree@duocuc.cl",
+      "password": "asd123",
+      "f_nacimiento": "1998-12-19",
+      "genero": "Masculino"
+    },
+    {
+      "id": "d68b",
+      "nombre": "Andres",
+      "email": "andre@duocuc.cl",
+      "password": "asd123",
+      "f_nacimiento": "1999-12-12",
+      "genero": "Masculino"
+    },
+    {
+      "id": "8eff",
+      "nombre": "Vicente",
+      "email": "vixo@duocuc.cl",
+      "password": "asd123",
+      "f_nacimiento": "1998-12-12",
+      "genero": "Masculino"
+    }
+  ]
 }

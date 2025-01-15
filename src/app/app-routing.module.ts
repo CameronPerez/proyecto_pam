@@ -7,8 +7,8 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'registro',
-    redirectTo: 'registro',
+    path: '',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {

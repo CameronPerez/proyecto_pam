@@ -1,13 +1,13 @@
-import { HttpClient, HttpHeaders ,HttpErrorResponse} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable ,retry} from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
 
-  apiUrl = 'https://71923649-e30a-4ac4-8def-5ff668b2a6c9-00-pgx9yevv9hdc.picard.replit.dev';
+  apiUrl = 'http://localhost:3000'; // Cambia a la URL correcta de tu API
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -16,10 +16,15 @@ export class UsuarioService {
     })
   };
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  registrarUsuario(user:any): Observable<any> {
-    
-    return this.http.post(`${this.apiUrl}/usuario`, user, this.httpOptions);
+  // Método para registrar un usuario
+  registrarUsuario(user: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/usuarios`, user, this.httpOptions);
+  }
+
+  // Método para iniciar sesión
+  loginUsuario(user: any): Observable<any> {
+    return this.http.get(`${this.apiUrl}/usuarios?email=${user.email}&password=${user.password}`, this.httpOptions);
   }
 }
