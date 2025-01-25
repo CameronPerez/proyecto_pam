@@ -1,22 +1,85 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Home</ion-title>
+    <!-- Botón de Cerrar Sesión en la esquina superior derecha -->
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarSesion()">
+        <ion-icon name="log-out-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-card *ngIf="data && data.nombre">
+<ion-content>
+  <!-- Mensaje de bienvenida -->
+  <ion-card *ngIf="userName">
     <ion-card-header>
-      <ion-card-title>Bienvenido, {{ data.nombre }}</ion-card-title>
+      <ion-card-title>Bienvenido, {{ userName }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <!-- Aquí puedes mostrar más información del usuario -->
+      Nos alegra verte de nuevo.
     </ion-card-content>
   </ion-card>
 
-  <ion-card *ngIf="!data || !data.nombre">
+  <!-- Mensaje por defecto si no hay usuario -->
+  <ion-card *ngIf="!userName">
     <ion-card-header>
-      <ion-card-title>Cargando...</ion-card-title>
+      <ion-card-title>Bienvenido, Usuario</ion-card-title>
     </ion-card-header>
+    <ion-card-content>
+      Nos alegra verte. Inicia sesión para personalizar tu experiencia.
+    </ion-card-content>
   </ion-card>
+
+  <!-- Lista de presupuestos -->
+  <ion-list>
+    <ion-item *ngFor="let presupuesto of presupuestos; let i = index">
+      <ion-label>
+        <!-- Mostrar el nombre dinámico del presupuesto -->
+        <h2>{{ presupuesto.nombre }}</h2>
+      </ion-label>
+
+      <!-- Botón Ver -->
+      <ion-button color="primary" slot="end" (click)="verPresupuesto(i)">
+        Ver
+      </ion-button>
+
+      <!-- Botón Compartir -->
+      <ion-button color="secondary" slot="end" (click)="compartirPresupuesto(i)">
+        Compartir
+      </ion-button>
+
+      <!-- Botón Eliminar -->
+      <ion-button color="danger" slot="end" (click)="confirmarEliminacion(i)">
+        Eliminar
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Lista de presupuestos compartidos -->
+  <ion-card *ngIf="presupuestosCompartidos.length > 0">
+    <ion-card-header>
+      <ion-card-title>Presupuestos Compartidos</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let presupuesto of presupuestosCompartidos; let i = index">
+          <ion-label>
+            <!-- Mostrar el nombre dinámico del presupuesto compartido -->
+            <h2>{{ presupuesto.nombre }}</h2>
+          </ion-label>
+
+          <!-- Botón Ver -->
+          <ion-button color="primary" slot="end" (click)="verPresupuestoCompartido(i)">
+            Ver
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Botón para crear presupuesto -->
+  <ion-button expand="block" color="primary" (click)="crearPresupuesto()">
+    Crear Presupuesto
+  </ion-button>
 </ion-content>

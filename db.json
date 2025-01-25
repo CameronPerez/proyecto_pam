@@ -1,52 +1,93 @@
 {
   "usuarios": [
     {
-      "id": "9a73",
-      "nombre": "asd",
-      "email": "asd123@duocuc.cl",
-      "password": "asd123",
-      "f_nacimiento": "1998-12-19",
-      "genero": "masculino"
+      "id": "1",
+      "nombre": "Juan",
+      "email": "juan@example.com",
+      "password": "123456",
+      "f_nacimiento": "1990-01-01",
+      "genero": "Masculino"
     },
     {
-      "id": "f3cb",
+      "id": "9df8",
       "nombre": "Andres",
       "email": "andres@duocuc.cl",
-      "password": "andres123",
-      "f_nacimiento": "1998-02-19",
-      "genero": "Masculino"
-    },
-    {
-      "id": "c772",
-      "nombre": "Andres",
-      "email": "asda1@duocuc.cl",
       "password": "asd123",
-      "f_nacimiento": "1998-12-19",
+      "f_nacimiento": "1998-03-12",
       "genero": "Masculino"
     },
     {
-      "id": "9d7a",
-      "nombre": "Andres",
-      "email": "andree@duocuc.cl",
-      "password": "asd123",
-      "f_nacimiento": "1998-12-19",
-      "genero": "Masculino"
-    },
-    {
-      "id": "d68b",
-      "nombre": "Andres",
-      "email": "andre@duocuc.cl",
-      "password": "asd123",
-      "f_nacimiento": "1999-12-12",
-      "genero": "Masculino"
-    },
-    {
-      "id": "8eff",
-      "nombre": "Vicente",
+      "id": "6ed3",
+      "nombre": "vicente",
       "email": "vixo@duocuc.cl",
       "password": "asd123",
-      "f_nacimiento": "1998-12-12",
+      "f_nacimiento": "1998-03-12",
       "genero": "Masculino"
+    }
+  ],
+  "presupuestos": [
+    {
+      "id": "1",
+      "nombre": "Presupuesto Inicial",
+      "usuarioEmail": "juan@example.com",
+      "fechaInicio": "2025-01-01",
+      "fechaFin": "2025-12-31",
+      "gastos": [
+        {
+          "id": "101",
+          "descripcion": "Compra de supermercado",
+          "monto": 5000,
+          "categoriaId": "1"
+        }
+      ],
+      "compartidoCon": []
+    },
+    {
+      "id": "1737782346972",
+      "nombre": "Presupuesto 1",
+      "usuarioEmail": "andres@duocuc.cl",
+      "gastos": [
+        {
+          "descripcion": "asdas",
+          "monto": 123123,
+          "categoriaId": "1737779743484",
+          "id": "1737784174406"
+        },
+        {
+          "descripcion": "asdasd",
+          "monto": 23123,
+          "categoriaId": "3",
+          "id": "1737784181670"
+        }
+      ],
+      "compartidoCon": [
+        "vixo@duocuc.cl"
+      ]
+    },
+    {
+      "id": "1737784221619",
+      "nombre": "Presupuesto Inicial",
+      "usuarioEmail": "vixo@duocuc.cl",
+      "gastos": [],
+      "compartidoCon": []
+    }
+  ],
+  "categorias": [
+    {
+      "id": "1",
+      "nombre": "Alimentos"
+    },
+    {
+      "id": "2",
+      "nombre": "Transporte"
+    },
+    {
+      "id": "3",
+      "nombre": "Bencina"
+    },
+    {
+      "id": "1737779743484",
+      "nombre": "Gimnasio"
     }
   ]
 }

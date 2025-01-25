@@ -1,5 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- Botón para volver -->
+      <ion-button (click)="volver()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>Registro</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -33,6 +39,9 @@
       </ion-item>
       <ion-text color="danger" *ngIf="errores.email">
         {{ errores.email }}
+      </ion-text>
+      <ion-text color="danger" *ngIf="errores.emailDuplicado">
+        {{ errores.emailDuplicado }}
       </ion-text>
 
       <!-- Campo Fecha de Nacimiento -->

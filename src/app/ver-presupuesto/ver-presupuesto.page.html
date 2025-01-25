@@ -1,0 +1,87 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="volver()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Detalles del Presupuesto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Presupuesto -->
+  <ion-card *ngIf="presupuesto">
+    <ion-card-header>
+      <ion-card-title>Editar Período del Presupuesto</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Fecha de Inicio:</ion-label>
+        <input type="date" [(ngModel)]="presupuesto.fechaInicio" />
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Fecha de Fin:</ion-label>
+        <input type="date" [(ngModel)]="presupuesto.fechaFin" />
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" color="primary" (click)="guardarCambios()">Guardar Cambios</ion-button>
+
+  <!-- Agregar gasto -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Agregar Gasto</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Descripción:</ion-label>
+        <ion-input placeholder="Descripción" [(ngModel)]="nuevoGasto.descripcion"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Monto:</ion-label>
+        <ion-input type="number" placeholder="Monto" [(ngModel)]="nuevoGasto.monto"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Categoría:</ion-label>
+        <ion-select [(ngModel)]="nuevoGasto.categoriaId" (ionChange)="verificarCategoria($event)">
+          <ion-select-option *ngFor="let categoria of categorias" [value]="categoria.id">
+            {{ categoria.nombre }}
+          </ion-select-option>
+          <ion-select-option value="nueva">Crear Nueva Categoría</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngIf="mostrarNuevaCategoria">
+        <ion-label position="stacked">Nueva Categoría:</ion-label>
+        <ion-input placeholder="Nueva Categoría" [(ngModel)]="nuevaCategoria.nombre"></ion-input>
+      </ion-item>
+      <ion-button expand="block" color="success" (click)="agregarGasto()">Agregar Gasto</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Gráfico -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Distribución de Gastos por Categoría</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas id="gastosChart" style="max-height: 300px;"></canvas>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Lista de gastos -->
+  <ion-list *ngIf="presupuesto.gastos && presupuesto.gastos.length > 0">
+    <ion-list-header>
+      <ion-label>Gastos Asociados</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let gasto of presupuesto.gastos; let i = index">
+      <ion-label>
+        <h2>{{ gasto.descripcion }}</h2>
+        <p>Monto: {{ gasto.monto }}</p>
+        <p>Categoría: {{ obtenerNombreCategoria(gasto.categoriaId) }}</p>
+      </ion-label>
+      <ion-button slot="end" color="danger" (click)="confirmarEliminacionGasto(i)">Eliminar</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro de Gastos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Selección de Categoría -->
+  <ion-item>
+    <ion-label position="stacked">Categoría</ion-label>
+    <ion-select [(ngModel)]="gasto.categoriaId">
+      <ion-select-option *ngFor="let categoria of categorias" [value]="categoria.id">
+        {{ categoria.nombre }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- Monto -->
+  <ion-item>
+    <ion-label position="stacked">Monto</ion-label>
+    <ion-input type="number" [(ngModel)]="gasto.monto"></ion-input>
+  </ion-item>
+
+  <!-- Fecha -->
+  <ion-item>
+    <ion-label position="stacked">Fecha</ion-label>
+    <ion-input type="date" [(ngModel)]="gasto.fecha"></ion-input>
+  </ion-item>
+
+  <!-- Descripción -->
+  <ion-item>
+    <ion-label position="stacked">Descripción</ion-label>
+    <ion-input type="text" [(ngModel)]="gasto.descripcion"></ion-input>
+  </ion-item>
+
+  <!-- Débito o Crédito -->
+  <ion-item>
+    <ion-label>Tipo</ion-label>
+    <ion-select [(ngModel)]="gasto.tipo">
+      <ion-select-option value="debito">Débito</ion-select-option>
+      <ion-select-option value="credito">Crédito</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- Cantidad de Cuotas (Solo para Crédito) -->
+  <ion-item *ngIf="gasto.tipo === 'credito'">
+    <ion-label position="stacked">Cantidad de Cuotas</ion-label>
+    <ion-input type="number" [(ngModel)]="gasto.cuotas"></ion-input>
+  </ion-item>
+
+  <!-- Botón para agregar gasto -->
+  <ion-button expand="block" color="primary" (click)="agregarGasto()">
+    Agregar Gasto
+  </ion-button>
+
+  <!-- Lista de gastos -->
+  <ion-list>
+    <ion-item *ngFor="let gasto of gastos">
+      <ion-label>
+        {{ gasto.descripcion }} - {{ gasto.monto }} ({{ gasto.fecha }})
+        <p>Tipo: {{ gasto.tipo }} - Cuotas: {{ gasto.cuotas || '1' }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

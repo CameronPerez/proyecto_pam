@@ -1,61 +1,64 @@
+/* Centrar el contenido en la pantalla */
+.center-content {
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center; /* Centrado vertical */
+  height: 100vh; /* Altura completa de la pantalla */
+  padding: 0; /* Sin relleno adicional */
+  background-color: #f4f4f4; /* Fondo suave */
+}
 
-ion-content {
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    height: 100vh; 
-    padding: 0; 
-  }
-  
-  ion-card-content {
-    background-color: #003459; 
-    border-radius: 15px; 
-    padding: 20px;
-    width: 90%; 
-    max-width: 400px; 
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); 
-  }
-  
-  .btn-login {
-    --background: #007EA7; 
-    --background-hover: #00A8E8; 
-    color: white; 
-    border-radius: 10px; 
-    margin-top: 20px;
-    font-size: 16px;
-    padding: 10px;
-  }
-  
-  ion-item {
-    margin-bottom: 15px;
-  }
-  
-  ion-input {
-    --placeholder-color: #999;
-    --color: #fff;
-    --border-color: #ccc;
-  }
-  
-  ion-input:focus {
-    --color: #00A8E8;
-    --placeholder-color: #00A8E8; 
-    --border-color: #00A8E8; 
-  }
-  
+/* Cuadro del login */
+.login-card {
+  width: 90%; /* Ancho del 90% del contenedor */
+  max-width: 400px; /* Ancho máximo del cuadro */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra */
+  background-color: #003459; /* Fondo del cuadro */
+}
 
-  ion-item ion-label {
-    font-size: 0.9rem;
-    color: #fff;
-  }
-  
-  ion-item ion-button {
-    color: #00A8E8; /* Estilo del botón de enlace */
-  }
-  
-  /* Texto de error */
-  ion-text {
-    font-size: 0.9rem;
-    color: #FF4D4D; /* Color rojo para los mensajes de error */
-    text-align: center;
-  }
-  
+/* Botón de inicio de sesión */
+.btn-login {
+  --background: #007EA7; /* Fondo azul */
+  --background-hover: #00A8E8; /* Fondo azul claro al pasar el mouse */
+  color: white; /* Texto blanco */
+  border-radius: 10px; /* Bordes redondeados */
+  margin-top: 20px; /* Espaciado superior */
+  font-size: 16px; /* Tamaño de fuente */
+  padding: 10px; /* Espaciado interno */
+}
+
+/* Estilo de los inputs */
+ion-item {
+  margin-bottom: 15px; /* Espaciado inferior */
+}
+
+ion-input {
+  --placeholder-color: #999; /* Color del placeholder */
+  --color: #fff; /* Color del texto */
+  --border-color: #ccc; /* Color del borde */
+}
+
+ion-input:focus {
+  --color: #00A8E8; /* Color del texto enfocado */
+  --placeholder-color: #00A8E8; /* Color del placeholder enfocado */
+  --border-color: #00A8E8; /* Color del borde enfocado */
+}
+
+/* Estilo de los labels */
+ion-item ion-label {
+  font-size: 0.9rem; /* Tamaño de fuente */
+  color: #fff; /* Color del texto */
+}
+
+/* Estilo del enlace de registro */
+ion-item ion-button {
+  color: #00A8E8; /* Color del botón */
+}
+
+/* Texto de error */
+ion-text {
+  font-size: 0.9rem; /* Tamaño del texto */
+  color: #FF4D4D; /* Color rojo */
+  text-align: center;
+}

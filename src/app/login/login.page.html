@@ -4,43 +4,45 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-card-content>
-    <ion-list>
-      <!-- Campo de Email -->
-      <ion-item>
-        <ion-input
-          labelPlacement="floating"
-          label="Email"
-          type="email"
-          placeholder="Ingresa tu email"
-          [(ngModel)]="user.email"
-        ></ion-input>
-      </ion-item>
+<ion-content class="center-content">
+  <ion-card class="login-card">
+    <ion-card-content>
+      <ion-list>
+        <!-- Campo de Email -->
+        <ion-item>
+          <ion-input
+            labelPlacement="floating"
+            label="Email"
+            type="email"
+            placeholder="Ingresa tu email"
+            [(ngModel)]="user.email"
+          ></ion-input>
+        </ion-item>
 
-      <!-- Campo de Contraseña -->
-      <ion-item>
-        <ion-input
-          labelPlacement="floating"
-          label="Contraseña"
-          type="password"
-          placeholder="Ingresa tu contraseña"
-          [(ngModel)]="user.password"
-        ></ion-input>
-      </ion-item>
+        <!-- Campo de Contraseña -->
+        <ion-item>
+          <ion-input
+            labelPlacement="floating"
+            label="Contraseña"
+            type="password"
+            placeholder="Ingresa tu contraseña"
+            [(ngModel)]="user.password"
+          ></ion-input>
+        </ion-item>
 
-      <!-- Botón de Iniciar Sesión -->
-      <ion-button expand="block" color="primary" (click)="login()">
-        Iniciar Sesión
-      </ion-button>
-
-      <!-- Enlace para Registrarse -->
-      <ion-item lines="none">
-        <ion-label>¿No tienes una cuenta?</ion-label>
-        <ion-button fill="clear" routerLink="/registro" color="secondary">
-          Regístrate aquí
+        <!-- Botón de Iniciar Sesión -->
+        <ion-button expand="block" class="btn-login" (click)="login()">
+          Iniciar Sesión
         </ion-button>
-      </ion-item>
-    </ion-list>
-  </ion-card-content>
+
+        <!-- Enlace para Registrarse -->
+        <ion-item lines="none" class="center-link">
+          <ion-label>¿No tienes una cuenta?</ion-label>
+          <ion-button fill="clear" routerLink="/registro" color="secondary">
+            Regístrate aquí
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
